@@ -1,8 +1,8 @@
 ---
  - name: Provisionando uma instancia EC2
-    hosts: eap-servers
-    connection: local
-    gather_facts: False
+   hosts: eap-servers
+   connection: local
+   gather_facts: False
 
     vars:
       instance_type: t2.medium
