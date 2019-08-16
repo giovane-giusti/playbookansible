@@ -11,8 +11,8 @@
        ec2_instance_facts:
          region: "{{ region }}"
          filters: us-east-1
-           tags:
-             Type: eapserver
+         tags:
+           Type: eapserver
        register: ec2
      - debug: var=ec2
 
