@@ -12,13 +12,6 @@
        ec2_instance_facts:
          region: "{{ region }}"
          filters:
-           region: "{{ region }}"
+           "tag:Name": eapserver
        register: ec2
      - debug: var=ec2
-
-     - name: Excluindo uma instancia EC2
-       ec2:
-         instance_ids: "{{ item.instance_id }}"
-         state: absent
-         region: "{{ region }}"
-       with_items: "{{ ec2.instances }}"
