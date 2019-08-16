@@ -16,7 +16,8 @@
    tasks:
 
      - name: Criação do security group
-       ec2_group:
+       local_action:
+         module: ec2_group
          name: "{{ security_group }}"
          description: Security group para novas instancias EC2
          region: "{{ region }}"
