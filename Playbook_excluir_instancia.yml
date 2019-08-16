@@ -4,18 +4,14 @@
    connection: local
 
    vars:
-     aws_access_key:
-     aws_secret_key:
-     region:
+     region: us-east-1
 
    tasks:
      - name: Coletar fatos EC2
        ec2_instance_facts:
          region: "{{ region }}"
-         filters:
+         filters:us-east-1
            "tag:Type": "eapserver"
-         aws_access_key: "{{ aws_access_key }}"
-         aws_secret_key: "{{ aws_secret_key }}"
        register: ec2
      - debug: var=ec2
 
@@ -24,8 +20,6 @@
          instance_ids: "{{ item.instance_id }}"
          state: absent
          region: "{{ region }}"
-         aws_access_key: "{{ aws_access_key }}"
-         aws_secret_key: "{{ aws_secret_key }}"
        with_items: "{{ ec2.instances }}"
 
      - name: Excluindo Security Group
