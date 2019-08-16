@@ -5,6 +5,7 @@
 
    vars:
      region: us-east-1
+     security_group: eap-sg
 
    tasks:
      - name: Coletar fatos EC2
