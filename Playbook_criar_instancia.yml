@@ -9,7 +9,6 @@
      security_group: eap-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
-     keypair: sshkeypair
      count: 1
 
    tasks:  
@@ -44,7 +43,6 @@
          image: "{{ image }}"
          wait: yes
          region: "{{ region }}"
-         keypair: "{{ keypair }}"
          count: "{{ count }}"
        register: ec2
      
