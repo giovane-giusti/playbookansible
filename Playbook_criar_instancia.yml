@@ -12,20 +12,7 @@
      keypair: sshkeypair
      count: 1
 
-   tasks:
-          
-
-     - name: Criação da instancia EC2
-       ec2:
-         group: "{{ security_group }}"
-         instance_type: "{{ instance_type }}"
-         image: "{{ image }}"
-         wait: yes
-         region: "{{ region }}"
-         keypair: "{{ keypair }}"
-         count: "{{ count }}"
-       register: ec2
-       
+   tasks:  
        
      - name: Criação do security group
        local_action:
@@ -50,6 +37,26 @@
            - proto: all
              cidr_ip: 0.0.0.0/0
 
+     - name: Criação da instancia EC2
+       ec2:
+         group: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: yes
+         region: "{{ region }}"
+         keypair: "{{ keypair }}"
+         count: "{{ count }}"
+       register: ec2- name: Criação da instancia EC2
+       ec2:
+         group: "{{ security_group }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: yes
+         region: "{{ region }}"
+         keypair: "{{ keypair }}"
+         count: "{{ count }}"
+       register: ec2
+     
      - name: Adicionar a nova instancia no hosts file
        add_host:
          name: "{{ item.public_ip }}"
