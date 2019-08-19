@@ -14,7 +14,7 @@
          filters:
            "tag:Type": eapserver
        register: ec2
-     - debug: var=ec2
+     - debug: var=ec2.instance_id
      
      - name: Excluindo uma instancia EC2
        ec2:
