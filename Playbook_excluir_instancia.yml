@@ -17,7 +17,7 @@
      - name: Excluindo uma instancia EC2
        ec2:
          instance_tags:
-           Name: eapserver
+           Type: eapserver
          state: restarted
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
