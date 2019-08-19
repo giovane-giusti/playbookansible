@@ -11,13 +11,14 @@
      - name: Coletar fatos EC2
        ec2_instance_facts:
          region: "{{ region }}"
+         filters:
+           "tag:Type": eapserver
        register: ec2
      - debug: var=ec2
      
      - name: Excluindo uma instancia EC2
        ec2:
-         instance_tags:
-           Type: eapserver
+         instance_ids: "{{ ec2.instances.id }}"
          state: restarted
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
