@@ -1,6 +1,6 @@
 ---
  - name: Excluindo uma instancia EC2
-   hosts: localhost
+   hosts: eap-servers
    connection: local
 
    vars:
