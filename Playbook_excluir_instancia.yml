@@ -18,7 +18,7 @@
      
      - name: Excluindo uma instancia EC2
        ec2:
-         instance_ids: "{{ ec2.instances.id }}"
+         instance_ids: "{{ ec2.instances_id }}"
          state: restarted
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
