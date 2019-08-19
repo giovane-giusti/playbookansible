@@ -42,7 +42,6 @@
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
-         key_name: "{{ keypair }}"
          wait: yes
          region: "{{ region }}"
          count: "{{ count }}"
