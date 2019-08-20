@@ -23,26 +23,3 @@
          state: stopped
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
-   hosts: localhost
-   connection: local
-
-   vars:
-     region: us-east-1
-     security_group: eap-sg
-
-   tasks:
-     - name: Coletar fatos EC2
-       ec2_instance_facts:
-         region: "{{ region }}"
-         filters:
-           "tag:Type": eapserver
-       register: ec2
-     - debug: var=ec2
-     - debug: var=item.instance_id
-     
-     - name: Excluindo uma instancia EC2
-       ec2:
-         instance_ids: "{{ item.instance_id }}"
-         state: stopped
-         region: "{{ region }}"
-       with_items: "{{ ec2.instances }}"
