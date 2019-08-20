@@ -1,57 +1,5 @@
 ---
  - name: Excluindo uma instancia EC2
-<<<<<<< HEAD
-    hosts: localhost
-    connection: local
-
-    vars:
-      aws_access_key:
-      aws_secret_key:
-      region:
-
-    tasks:
-      - name: Coletar fatos EC2
-        ec2_instance_facts:
-          region: "{{ region }}"
-          filters:
-            "tag:Type": "eapserver"
-          aws_access_key: "{{ aws_access_key }}"
-          aws_secret_key: "{{ aws_secret_key }}"
-        register: ec2
-      - debug: var=ec2
-
-      - name: Excluindo uma instancia EC2
-        ec2:
-          instance_ids: "{{ item.instance_id }}"
-          state: absent
-          region: "{{ region }}"
-          aws_access_key: "{{ aws_access_key }}"
-          aws_secret_key: "{{ aws_secret_key }}"
-        with_items: "{{ ec2.instances }}"
-
-      - name: Excluindo Security Group
-        ec2_group:
-          name: "{{ security_group }}"
-          description: Deletando o Security Group
-          region: "{{ region }}"
-          state: absent
-          rules:
-            - proto: tcp
-              from_port: 22
-              to_port: 22
-              cidr_ip: 0.0.0.0/0
-            - proto: tcp
-              from_port: 80
-              to_port: 80
-              cidr_ip: 0.0.0.0/0
-            - proto: tcp
-              from_port: 443
-              to_port: 443
-              cidr_ip: 0.0.0.0/0
-            rules_egress:
-            - proto: all
-              cidr_ip: 0.0.0.0/0       
-=======
    hosts: localhost
    connection: local
 
@@ -75,4 +23,26 @@
          state: stopped
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
->>>>>>> 1291dac04345d95a0347cc5f8caffc1cc04ffc4d
+   hosts: localhost
+   connection: local
+
+   vars:
+     region: us-east-1
+     security_group: eap-sg
+
+   tasks:
+     - name: Coletar fatos EC2
+       ec2_instance_facts:
+         region: "{{ region }}"
+         filters:
+           "tag:Type": eapserver
+       register: ec2
+     - debug: var=ec2
+     - debug: var=item.instance_id
+     
+     - name: Excluindo uma instancia EC2
+       ec2:
+         instance_ids: "{{ item.instance_id }}"
+         state: stopped
+         region: "{{ region }}"
+       with_items: "{{ ec2.instances }}"
