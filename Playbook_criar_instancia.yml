@@ -7,7 +7,6 @@
    vars:
      instance_type: t2.medium
      security_group: eap-sg
-     keypair: workshop
      image: ami-0c322300a1dd5dc79
      region: us-east-1
      count: 1
@@ -42,7 +41,6 @@
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
-         key_name: "{{ keypair }}"
          wait: yes
          region: "{{ region }}"
          count: "{{ count }}"
