@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: 54.237.242.112
   become: true
 
   tasks:
