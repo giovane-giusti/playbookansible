@@ -1,5 +1,5 @@
 ---
-- hosts: 54.237.242.112
+- hosts: 54.242.216.71
   become: true
 
   tasks:
