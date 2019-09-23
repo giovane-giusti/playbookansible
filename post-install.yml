@@ -5,17 +5,6 @@
   connection: local
   tasks:
 
-  - name: Creating manutenção group
-    group:
-      name: suporte
-      state: present
-
-  - name: Adding user Manutenção
-    user:
-      name: Manutencao
-      comment: Administrador
-      group: suporte
-
   - name: Setting SELinux in permissive mode
     selinux:
       policy: targeted
