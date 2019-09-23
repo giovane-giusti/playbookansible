@@ -1,6 +1,7 @@
 ---
  - name: Provisionando uma instancia EC2
    hosts: localhost
+   become: yes
    connection: local
    gather_facts: False
 
