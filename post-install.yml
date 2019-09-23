@@ -1,7 +1,7 @@
 ---
 - name: Basic machine post configurations
-  hosts: all
-  become: true
+  hosts: localhost
+  connection: local
   tasks:
 
   - name: Creating manutenção group
