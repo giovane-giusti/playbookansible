@@ -1,20 +1,8 @@
 ---
-- name: Playbook da Semana 5
+- name: Installing Apache
   hosts: all
   become: true
   tasks:
-  
-  - name: Creating group
-    group:
-      name: redhatters
-      state: present
-  
-  - name: Add user Bob
-    user:
-      name: Bob
-      comment: John Doe
-      uid: 1040
-      group: redhatters
 
   - firewalld:
       port: 161-162/udp
@@ -41,7 +29,5 @@
     copy:
       src: index.html
       dest: /var/www/html/index.html
-      owner: Bob
-      group: redhatters
       mode: 0644
   
