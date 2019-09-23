@@ -1,6 +1,6 @@
 ---
 - name: Basic machine post configurations
-  hosts: localhost
+  hosts: all
   connection: local
   tasks:
 
