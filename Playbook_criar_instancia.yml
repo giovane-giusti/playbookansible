@@ -9,6 +9,7 @@
      security_group: eap-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
+     keypair_name: ec2_key
      count: 1
 
    tasks:  
@@ -35,7 +36,13 @@
          rules_egress:
            - proto: all
              cidr_ip: 0.0.0.0/0
-
+                       
+     - name: ssh keypair for ec2
+       ec2_key:
+         region: "{{ region }}"
+         name: "{{ keypair_name }}"
+         state: present
+     
      - name: Criação da instancia EC2
        ec2:
          group: "{{ security_group }}"
