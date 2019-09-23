@@ -5,7 +5,7 @@
    gather_facts: False
 
    vars:
-     instance_type: t2.medium
+     instance_type: t2.micro
      security_group: eap-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
