@@ -3,16 +3,6 @@
   hosts: all
   become: true
   tasks:
-
-  - firewalld:
-      port: 161-162/udp
-      permanent: yes
-      state: enabled
-  
-  - firewalld:
-      port: 8081/tcp
-      permanent: yes
-      state: disabled
     
   - name: Install Apache
     yum:
