@@ -3,7 +3,6 @@
   hosts: localhost
   gather_facts: no
   connection: local
-  become: yes
   tasks:
 
   - name: Creating manutenção group
@@ -15,7 +14,6 @@
     user:
       name: Manutencao
       comment: Administrador
-      uid: 1040
       group: suporte
 
   - name: Setting SELinux in permissive mode
