@@ -1,12 +1,27 @@
 ---
-- hosts: 107.20.45.40
+- name: Basic machine post configurations
+  hosts: all
   become: true
-
   tasks:
-  - name: Get URL
-    get_url:
-      url: http://nexus-cicd-monolith-9997.apps.rhpds311.openshift.opentlc.com/repository/Claro-Workshop/helloworld-html5/helloworld-html5-.war
-      dest: /home
 
-  - name: Echoing
-    shell: echo "Download Completo"
+  - name: Creating manutenção group
+    group:
+      name: suporte
+      state: present
+
+  - name: Adding user Manutenção
+    user:
+      name: Manutencao
+      comment: Administrador
+      uid: 1040
+      group: suporte
+
+  - name: Setting SELinux in permissive mode
+    selinux:
+      policy: targeted
+      state: permissive
+      
+  - name: Upgrading all packages
+    yum:
+      name: '*'
+      state: latest
