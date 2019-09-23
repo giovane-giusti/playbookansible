@@ -23,7 +23,7 @@
      
      - name: Excluindo Security Group
        ec2_group:
-         group_name: "{{ security_group }}"
+         name: "{{ security_group }}"
          region: "{{ region }}"
          state: absent
      
