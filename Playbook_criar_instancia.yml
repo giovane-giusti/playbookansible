@@ -40,6 +40,7 @@
      - name: ssh keypair for ec2
        ec2_key:
          region: "{{ region }}"
+         key_material: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKar4py83FbZ+5Qb7L5iKXq566kPgPaz5Gh/YiVweHce63GYeeo9ZhPbQpV/CbbvC8333WwGVBLHSq99LawsyhGGbgVeHEFQLR2b2yS9VCQOHp/35SYVOp+CoPuStbU7xq7kshOXgLUYxH9GyRb59mrKM94CCz83nMMl3WJjnPuKWCbh1o/7SX9a+Cgj53SbxFFaDz3xIJI4LofRhexdPgAIHrQy9tev2xkuYqxSpF2GG9lxxujC2/y+t4mknaiL2utozvgb7at2aSgwpLRAZWX3hIv+WZo/VOGbOOwO0ga6o5o0uYQUXuQbd1FjSZ6+MmdFQULxynoe5lepxcqtif root@ansible-tower
          name: "{{ keypair_name }}"
          state: present
      
