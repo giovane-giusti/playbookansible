@@ -21,15 +21,15 @@
      - debug: var=ec2
      - debug: var=item.instance_id
      
-     - name: Excluindo Security Group
-       ec2_group:
-         name: "{{ security_group }}"
-         region: "{{ region }}"
-         state: absent
-     
      - name: Excluindo uma instancia EC2
        ec2:
          instance_ids: "{{ item.instance_id }}"
          state: absent
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
+
+     - name: Excluindo Security Group
+       ec2_group:
+         name: "{{ security_group }}"
+         region: "{{ region }}"
+         state: absent
