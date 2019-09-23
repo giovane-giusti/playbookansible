@@ -6,11 +6,13 @@
   tasks:
 
   - name: Setting SELinux in permissive mode
+    become: yes
     selinux:
       policy: targeted
       state: permissive
       
   - name: Upgrading all packages
+    become: yes
     yum:
       name: '*'
       state: latest
