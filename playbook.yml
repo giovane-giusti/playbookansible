@@ -1,0 +1,47 @@
+---
+- name: Playbook da Semana 5
+  hosts: all
+  become: true
+  tasks:
+  
+  - name: Creating group
+    group:
+      name: redhatters
+      state: present
+  
+  - name: Add user Bob
+    user:
+      name: Bob
+      comment: John Doe
+      uid: 1040
+      group: redhatters
+
+  - firewalld:
+      port: 161-162/udp
+      permanent: yes
+      state: enabled
+  
+  - firewalld:
+      port: 8081/tcp
+      permanent: yes
+      state: disabled
+    
+  - name: Install Apache
+    yum:
+      name: httpd
+      state: present
+      
+  - name: Start Httpd and Make Persistent
+    service:
+      name: httpd
+      state: started
+      enabled: yes
+
+  - name: Putting index.html inside repo
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      owner: Bob
+      group: redhatters
+      mode: 0644
+  
