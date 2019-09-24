@@ -19,8 +19,3 @@
     selinux:
       policy: targeted
       state: permissive
-      
-  - name: Upgrading all packages
-    yum:
-      name: '*'
-      state: latest
