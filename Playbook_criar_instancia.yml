@@ -41,7 +41,7 @@
                       
      - name: Criação da instancia EC2
        ec2:
-         key_name: tower
+         key_name: ansible
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
