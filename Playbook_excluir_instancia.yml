@@ -1,8 +1,7 @@
 ---
  - name: Excluindo uma instancia EC2
-   hosts: localhost
+   hosts: all
    connection: local
-   become: yes
    
    vars:
      instance_type: t2.micro
