@@ -31,7 +31,7 @@
      - name: Excluindo o Security Group
        ec2_group:
          region: us-east-1
-         group_name: apache-sg
+         name: apache-sg
          rules:
            - proto: tcp
              from_port: 22
