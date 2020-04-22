@@ -14,3 +14,9 @@
     yum:
       name: zabbix-agent
       state: latest
+      
+  - name: Start Zabbix Agent and make persistent
+    service:
+      name: zabbix-agent
+      state: started
+      enabled: yes
