@@ -6,7 +6,7 @@
 
    vars:
      instance_type: t2.micro
-     security_group: eap-sg
+     security_group: apache-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
      keypair_name: ec2_key
@@ -64,7 +64,7 @@
        with_items: "{{ ec2.instances }}"
        args:
          tags:
-           Type: eapserver
+           Type: webserver
 
      - name: Esperando pelo SSH
        wait_for:
