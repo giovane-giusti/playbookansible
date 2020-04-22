@@ -19,3 +19,9 @@
     selinux:
       policy: targeted
       state: permissive
+  
+  - name: Configuring Firewall Ports and Services
+    firewalld:
+      port: 10050/tcp
+      permanent: yes
+      state: enabled
