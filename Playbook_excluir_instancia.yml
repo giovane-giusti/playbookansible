@@ -28,6 +28,9 @@
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
        
+     - pause:
+         minutes: 1
+       
      - name: Excluindo o Security Group
        ec2_group:
          region: us-east-1
