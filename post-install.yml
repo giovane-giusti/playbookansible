@@ -20,6 +20,11 @@
       policy: targeted
       state: permissive
       
+  - name: Installing Firewalld
+    yum:
+      name: firewalld
+      state: latest
+      
   - name: Check if Firewall is running
     service:
       name: firewalld
