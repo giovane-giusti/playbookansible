@@ -32,4 +32,24 @@
        ec2_group:
          region: us-east-1
          group_name: apache-sg
+         rules:
+           - proto: tcp
+             from_port: 22
+             to_port: 22
+             cidr_ip: 0.0.0.0/0
+           - proto: tcp
+             from_port: 80
+             to_port: 80
+             cidr_ip: 0.0.0.0/0
+           - proto: tcp
+             from_port: 443
+             to_port: 443
+             cidr_ip: 0.0.0.0/0
+           - proto: all
+             cidr_ip: 0.0.0.0/0
+             state: absent
+         rules_egress:
+           - proto: all
+             cidr_ip: 0.0.0.0/0
+             state: absent
          state: absent
