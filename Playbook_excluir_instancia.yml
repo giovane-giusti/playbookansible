@@ -8,7 +8,7 @@
      security_group: apache-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
-     keypair_name: ec2_key
+     keypair_name: tower
      count: 1
    
    tasks:
@@ -27,3 +27,9 @@
          state: absent
          region: "{{ region }}"
        with_items: "{{ ec2.instances }}"
+       
+     - name: Excluindo o Security Group
+       ec2_group:
+         region: us-east-1
+         group_id: apache-sg
+         state: absent
