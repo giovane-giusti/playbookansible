@@ -31,5 +31,5 @@
      - name: Excluindo o Security Group
        ec2_group:
          region: us-east-1
-         name: apache-sg
+         group_name: apache-sg
          state: absent
