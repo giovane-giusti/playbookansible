@@ -5,7 +5,7 @@
    
    vars:
      instance_type: t2.micro
-     security_group: eap-sg
+     security_group: apache-sg
      image: ami-0c322300a1dd5dc79
      region: us-east-1
      keypair_name: ec2_key
@@ -16,7 +16,7 @@
        ec2_instance_facts:
          region: "{{ region }}"
          filters:
-           "tag:Type": eapserver
+           "tag:Type": webserver
        register: ec2
      - debug: var=ec2
      - debug: var=item.instance_id
