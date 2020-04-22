@@ -19,6 +19,12 @@
     selinux:
       policy: targeted
       state: permissive
+      
+  - name: Check if Firewall is running
+    service:
+      name: firewalld
+      state: started
+      enabled: yes
   
   - name: Configuring Firewall Ports and Services
     firewalld:
