@@ -36,3 +36,16 @@
       port: 10050/tcp
       permanent: yes
       state: enabled
+      
+      
+  - name: Configuring Firewall Ports and Services for HTTPS
+    firewalld:
+      service: https
+      permanent: yes
+      state: enabled
+      
+  - name: Configuring Firewall Ports and Services for HTTP
+    firewalld:
+      service: http
+      permanent: yes
+      state: enabled
