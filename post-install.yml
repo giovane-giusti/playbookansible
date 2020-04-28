@@ -49,3 +49,8 @@
       service: http
       permanent: yes
       state: enabled
+
+  - name: Restart Firewall
+    service:
+      name: firewalld
+      state: restarted
