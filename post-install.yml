@@ -3,7 +3,7 @@
   hosts: all
   tasks:
 
-  - name: Creating manutenção group
+  - name: Creating Suporte group
     group:
       name: suporte
       state: present
