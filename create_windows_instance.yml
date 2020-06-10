@@ -41,6 +41,8 @@
          wait: yes
          wait_timeout: 500
          exact_count: 1
+         count_tag:
+           Name: ansible-managed
          instance_tags:
            Name: ansible-managed
        register: ec2_result
