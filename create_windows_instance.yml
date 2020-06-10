@@ -38,7 +38,6 @@
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          region: "{{ region }}"
-         count: "{{ count }}"
          wait: yes
          wait_timeout: 500
          exact_count: 1
