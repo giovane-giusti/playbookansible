@@ -39,6 +39,7 @@
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          region: "{{ region }}"
+         key_name: windows         
          wait: yes
          wait_timeout: 500
          exact_count: 1
