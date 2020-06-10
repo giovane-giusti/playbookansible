@@ -31,6 +31,8 @@
            from_port: 3389
            to_port: 3389
            cidr_ip: 0.0.0.0/0
+         register: security_group
+
                       
      - name: Criação da instancia Windows na EC2
        ec2:
