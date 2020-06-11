@@ -1,6 +1,6 @@
 ---
  - name: Instalação do IIS Web Server
-   hosts: windows
+   hosts: all
    
    tasks:
      - name: Instalação IIS
