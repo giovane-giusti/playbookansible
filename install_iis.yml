@@ -1,6 +1,7 @@
 ---
  - name: Instalação do IIS Web Server
    hosts: all
+   ansible_connection: winrm   
    
    tasks:
      - name: Instalação IIS
