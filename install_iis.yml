@@ -1,23 +1,23 @@
  ---
- - name: Instalação do IIS Web Server
-   hosts: windows
+  - name: Instalação do IIS Web Server
+    hosts: windows
    
-   tasks:
-     - name: Instalação IIS
-       win_feature:
-         name: Web-Server
-         state: present
+    tasks:
+      - name: Instalação IIS
+        win_feature:
+          name: Web-Server
+          state: present
          
-     - name: Iniciar o serviço IIS
-       win_service:
-         name: W3Svc
-         state: started
+      - name: Iniciar o serviço IIS
+        win_service:
+          name: W3Svc
+          state: started
          
-     - name: Criar o website index.html
-       win_copy:
-         content: "{{ iis_test_message }}"
-         dest: C:\Inetpub\wwwroot\index.html
+      - name: Criar o website index.html
+        win_copy:
+          content: "{{ iis_test_message }}"
+          dest: C:\Inetpub\wwwroot\index.html
          
-     - name: Mostrar o endereço
-       debug:
-         msg: http://{{ ansible_host }}
+      - name: Mostrar o endereço
+        debug:
+          msg: http://{{ ansible_host }}
