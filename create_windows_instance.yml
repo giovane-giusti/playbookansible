@@ -53,7 +53,7 @@
          profile: my-boto-profile
          instance_id: "{{ item.instance_id }}"
          region: "{{ region }}"
-         key_data: "{{ ec2_private_key }}"
+         key_file: "~/aws-creds/my_test_key.pem"
        
      - name: "Adicionar os hosts ao inventário"
        add_host:
