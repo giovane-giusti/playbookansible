@@ -60,8 +60,11 @@
          wait_timeout: 500
          count: 1
          instance_tags:
-           Name: ansible-managed
-       register: ec2 
+           Name: "{{ vm_name }}"
+         count_tag:
+           Name: "{{ vm_name }}"
+       register: ec2
+       
          
      - name: Esperar por uma conexão WinRM nos hosts
        wait_for:
