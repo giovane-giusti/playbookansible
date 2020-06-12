@@ -9,7 +9,8 @@
      instance_type: "{{ flavor }}"
      security_group: WinRM-sg
      image: ami-06b5313041af15e3b
-     region: sa-east-1
+     #region: sa-east-1
+     region: "{{ regiao }}"
 
    tasks:  
        
@@ -50,7 +51,7 @@
          group: "{{ security_group }}"
          instance_type: "{{ flavor }}"
          image: "{{ image }}"
-         region: "{{ region }}"
+         region: "{{ regiao }}"
          key_name: windows
          user_data: "{{ lookup('file', 'winrm.txt') }}"
          wait: yes
