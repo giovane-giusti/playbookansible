@@ -5,7 +5,8 @@
    gather_facts: True
 
    vars:
-     instance_type: t2.micro
+     #instance_type: t2.micro
+     instance_type: flavor
      security_group: WinRM-sg
      image: ami-06b5313041af15e3b
      region: sa-east-1
