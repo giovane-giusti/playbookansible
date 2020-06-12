@@ -4,6 +4,7 @@
    connection: local
    gather_facts: True
 
+
    vars:
      #instance_type: t2.micro
      instance_type: "{{ flavor }}"
@@ -11,7 +12,7 @@
      image: ami-06b5313041af15e3b
      #region: sa-east-1
      region: "{{ regiao }}"
-     hostname: "{{ hostname }}"
+     vm_name: "{{ hostname }}"
 
    tasks:  
        
@@ -54,7 +55,7 @@
          image: "{{ image }}"
          region: "{{ regiao }}"
          key_name: windows
-         user_data: "{{ lookup('file', 'winrm.txt') }}"
+         user_data: "{{ lookup('template', 'winrm.j2') }}"
          wait: yes
          wait_timeout: 500
          count: 1
