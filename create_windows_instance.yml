@@ -42,6 +42,7 @@
          rules_egress:
          - proto: -1
            cidr_ip: 0.0.0.0/0
+       register: sg_out  
             
      - name: Criação da instancia Windows na EC2
        ec2:
@@ -59,16 +60,16 @@
        register: ec2_result
          
      - name: "Esperar por uma conexão WinRM nos hosts."
-       win_wait_for:
+       wait_for:
          port: 5986
          host: "{{ item.public_ip }}"
          timeout: 300
+       with_items: ec2_result.tagged_instances
        
        
-    # - name: "Adicionar os hosts ao inventário"
-      # add_host:
-         #name: "{{ item.id }}"
-         #ansible_host: "{{ item.public_ip }}"
-        # groups: windows
-         #changed_when: false
-      # with_items: "{{ ec2_result.tagged_instances }}"
+     - name: "Adicionar os hosts ao inventário"
+       add_host:
+         name: win-instance-"{{ item.id }}"
+         ansible_ssh_host: "{{ item.public_ip }}"
+         groups: windows
+       with_items: "{{ ec2_result.tagged_instances }}"
