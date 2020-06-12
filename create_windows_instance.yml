@@ -46,7 +46,7 @@
          image: "{{ image }}"
          region: "{{ region }}"
          key_name: windows
-         user_data: winrm
+         user_data: "{{ lookup('file', 'winrm.txt') }}"
          wait: yes
          wait_timeout: 500
          count: 1
