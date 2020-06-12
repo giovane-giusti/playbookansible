@@ -15,7 +15,7 @@
          
      - name: Criar o website index.html
        win_copy:
-         content: "{{ iis_test_message }}"
+         src: index.html
          dest: C:\Inetpub\wwwroot\index.html
          
      - name: Mostrar o endereço
