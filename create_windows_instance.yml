@@ -60,6 +60,7 @@
        register: ec2_result
          
      - name: Wait for system to become reachable over WinRM
+       ping:
        wait_for_connection:
          timeout: 900 
          
