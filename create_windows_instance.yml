@@ -48,13 +48,6 @@
            Name: ansible-managed
        register: ec2_result
        
-     - name: Pegar a senha de Administrador
-       ec2_win_password:
-         profile: my-boto-profile
-         instance_id: "{{ item.instance_id }}"
-         region: "{{ region }}"
-         key_file: "~/aws-creds/my_test_key.pem"
-       
      - name: "Adicionar os hosts ao inventário"
        add_host:
          name: "{{ item.id }}"
