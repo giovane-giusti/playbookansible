@@ -5,10 +5,12 @@
    gather_facts: False
 
    vars:
-     instance_type: t2.micro
+     #instance_type: t2.micro
+     instance_type: "{{ flavor }}"
      security_group: apache-sg
      image: ami-0c322300a1dd5dc79
-     region: us-east-1
+     #region: us-east-1
+     region: "{{ regiao }}"
      keypair_name: ec2_key
      count: 1
 
@@ -43,10 +45,10 @@
        ec2:
          key_name: tower
          group: "{{ security_group }}"
-         instance_type: "{{ instance_type }}"
+         instance_type: "{{ flavor }}"
          image: "{{ image }}"
          wait: yes
-         region: "{{ region }}"
+         region: "{{ regiao }}"
          count: "{{ count }}"
        register: ec2
      
