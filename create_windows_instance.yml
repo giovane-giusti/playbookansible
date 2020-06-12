@@ -45,7 +45,8 @@
          instance_type: "{{ instance_type }}"
          image: "{{ image }}"
          region: "{{ region }}"
-         user_data: winrm.txt
+         key_name: windows
+         user_data: winrm
          wait: yes
          wait_timeout: 500
          count: 1
