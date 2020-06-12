@@ -57,9 +57,9 @@
          instance_tags:
            Name: ansible-managed
        register: ec2_result
-     
+         
      - name: "Esperar por uma conexão WinRM nos hosts."
-       wait_for:
+       win_wait_for:
          port: 5986
          host: "{{ item.public_ip }}"
          timeout: 300
