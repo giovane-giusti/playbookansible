@@ -63,13 +63,12 @@
          port: 5986
          host: "{{ item.public_ip }}"
          timeout: 300
-       with_items: "{{ ec2_result.tagged_instances }}"
        
        
-     - name: "Adicionar os hosts ao inventário"
-       add_host:
-         name: "{{ item.id }}"
-         ansible_host: "{{ item.public_ip }}"
-         groups: windows
-         changed_when: false
-       with_items: "{{ ec2_result.tagged_instances }}"
+    # - name: "Adicionar os hosts ao inventário"
+      # add_host:
+         #name: "{{ item.id }}"
+         #ansible_host: "{{ item.public_ip }}"
+        # groups: windows
+         #changed_when: false
+      # with_items: "{{ ec2_result.tagged_instances }}"
