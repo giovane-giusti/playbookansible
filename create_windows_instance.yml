@@ -59,10 +59,9 @@
            Name: ansible-managed
        register: ec2_result
          
-     - name: Wait for system to become reachable over WinRM
-       ping:
-       wait_for_connection:
-         timeout: 900 
+     - pause:
+         prompt: Esperando a instância iniciar
+         seconds: 300
          
          
          
