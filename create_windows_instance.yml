@@ -66,9 +66,9 @@
          changed_when: false
        with_items: "{{ ec2_result.tagged_instances }}"
      
-     #- name: "Esperar por uma conexão WinRM nos hosts."
-       #wait_for:
-         #port: 5986
-         #host: "{{ item.public_ip }}"
-         #timeout: 300
-       #with_items: "{{ ec2_result.tagged_instances }}"
+     - name: "Esperar por uma conexão WinRM nos hosts."
+       wait_for:
+         port: 5986
+         host: "{{ item.public_ip }}"
+         timeout: 300
+       with_items: "{{ ec2_result.tagged_instances }}"
