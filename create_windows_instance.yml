@@ -20,26 +20,25 @@
          region: "{{ region }}"
          rules:       
          - proto: tcp
-         from_port: 80
-         to_port: 80
-         cidr_ip: 0.0.0.0/0
+           from_port: 80
+           to_port: 80
+           cidr_ip: 0.0.0.0/0
          - proto: tcp
-         from_port: 5986
-         to_port: 5986
-         cidr_ip: 0.0.0.0/0
+           from_port: 5986
+           to_port: 5986
+           cidr_ip: 0.0.0.0/0
          - proto: tcp
-         from_port: 5985
-         to_port: 5985
-         cidr_ip: 0.0.0.0/0         
+           from_port: 5985
+           to_port: 5985
+           cidr_ip: 0.0.0.0/0         
          - proto: tcp
-         from_port: 3389
-         to_port: 3389
-         cidr_ip: 0.0.0.0/0
+           from_port: 3389
+           to_port: 3389
+           cidr_ip: 0.0.0.0/0
          rules_egress:
          - proto: -1
-         cidr_ip: 0.0.0.0/0
-
-                      
+           cidr_ip: 0.0.0.0/0
+            
      - name: Criação da instancia Windows na EC2
        ec2:
          group: "{{ security_group }}"
