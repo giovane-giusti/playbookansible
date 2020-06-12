@@ -11,6 +11,7 @@
      image: ami-06b5313041af15e3b
      #region: sa-east-1
      region: "{{ regiao }}"
+     hostname: "{{ hostname }}"
 
    tasks:  
        
@@ -72,6 +73,6 @@
      - name: "Adicionar os hosts ao inventário"
        add_host:
          name: win-instance-"{{ item.id }}"
-         ansible_ssh_host: "{{ item.public_ip }}"
+         ansible_host: "{{ hostname }}"
          groups: windows
        with_items: "{{ ec2.instances }}"
