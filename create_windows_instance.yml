@@ -61,7 +61,7 @@
          
      #- pause:
          #prompt: Esperando a instância iniciar
-         #seconds: 300  
+         #seconds: 180  
          
      - name: Esperar por uma conexão WinRM nos hosts
        wait_for:
