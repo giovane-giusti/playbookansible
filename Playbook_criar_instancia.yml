@@ -1,5 +1,5 @@
 ---
- - name: Provisionando uma instancia EC2
+ - name: Provisionando uma instância RHEL EC2
    hosts: localhost
    connection: local
    gather_facts: False
