@@ -8,7 +8,7 @@
      #instance_type: t2.micro
      instance_type: "{{ flavor }}"
      security_group: apache-sg
-     image: ami-00e63b4959e1a98b7
+     image: ami-098f16afa9edf40be
      #region: us-east-1
      region: "{{ regiao }}"
      keypair_name: ec2_key
