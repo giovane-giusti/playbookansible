@@ -10,7 +10,7 @@
      elb_target_group:
        name: tg-webserver-dev-inbound
        region: us-east-1
-       protocol: http
+       protocol: tcp
        port: 80
        vpc_id: vpc-e1ebae9b
        health_check_protocol: http
@@ -34,7 +34,7 @@
          - subnet-81b5c9bf
        
        listeners:
-         - Protocol: http
+         - Protocol: TCP
            Port: 80
            DefaultActions:
              - Type: forward
