@@ -13,6 +13,9 @@
        protocol: http
        port: 80
        vpc_id: vpc-e1ebae9b
+       health_check_protocol: http
+       health_check_path: /
+       successful_response_codes: "200, 250-260"
        targets:
          - Id: i-0df7272f32df2fd15
            Port: 80
