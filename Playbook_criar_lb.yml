@@ -1,0 +1,33 @@
+---
+ - name: Criando Load Balancer
+   hosts: localhost
+   connection: local
+   gather_facts: false
+   
+tasks:
+
+ - name: Criando Target Group
+   elb_target_group:
+     name: tg_webserver_dev_inbound
+     protocol: http
+     port: 80
+     vpc_id: vpc-
+     targets:
+       - Id:
+         Port:
+     state: present
+     wait_timeout: 200
+     wait: True
+     
+ - elb_network_lb:
+     name: lb_webserver_prod_inbound
+     subnets:
+       - subnet-
+       
+     listeners:
+       - Protocol: TCP
+         Port: 443
+         DefaultActions:
+           - Type: forward
+             TargetGroupName: tg_webserver_dev_inbound
+     state: present
