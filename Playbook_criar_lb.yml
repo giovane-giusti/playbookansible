@@ -26,17 +26,21 @@
        wait: True
      
    - name: Criando Load Balancer
-     elb_network_lb:
+     ec2_elb_lb:
        name: lb-webserver-prod-inbound
+       state: present
        region: us-east-1
-       subnets:
-         - subnet-81b5c9bf
-       
+       zones:
+         - us-east-1a       
        listeners:
          - protocol: http
            load_balancer_port: 80
            intance_port: 80
-           DefaultActions:
-             - Type: forward
-               TargetGroupName: tg-webserver-dev-inbound
+       register: aws-elb-demo
+       
+   - name: adicionar o webservers no load balancer
+     ec2_elb:
+       instance_id: i-0886a28a3440d8b92
+       ec2_elbs: aws-elb-demo
        state: present
+       region: us-east-1
