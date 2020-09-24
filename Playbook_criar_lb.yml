@@ -5,16 +5,16 @@
    gather_facts: false
    
    tasks:
-   
-   - name: Criação do ELB
-     ec2_elb_lb:
-     name: elb-lb-test
-       state: present
-       region: us-east-1
-       zones:
-        - us-east-1a
-        - us-east-1b
-       listeners:
-         - prtocol: http
-           load_balancer_port: 80
-           instance_port: 80
+     
+     - name: Criação do ELB
+       ec2_elb_lb:
+         name: elb-lb-test
+         state: present
+         region: us-east-1
+         zones:
+          - us-east-1a
+          - us-east-1b
+         listeners:
+           - prtocol: http
+             load_balancer_port: 80
+             instance_port: 80
