@@ -33,8 +33,9 @@
          - subnet-81b5c9bf
        
        listeners:
-         - Protocol: TCP
-           Port: 80
+         - protocol: http
+           load_balancer_port: 80
+           intance_port: 80
            DefaultActions:
              - Type: forward
                TargetGroupName: tg-webserver-dev-inbound
