@@ -8,7 +8,7 @@
    
    - name: Criando Target Group com instancias alvo
      elb_target_group:
-       name: tg_webserver_dev_inbound
+       name: tg-webserver-dev-inbound
        region: us-east-1
        protocol: http
        port: 80
@@ -24,7 +24,7 @@
      
    - name: Criando Load Balancer
      elb_network_lb:
-       name: lb_webserver_prod_inbound
+       name: lb-webserver-prod-inbound
        subnets:
          - subnet-1d9cb57a
          - subnet-81b5c9bf
@@ -34,5 +34,5 @@
            Port: 443
            DefaultActions:
              - Type: forward
-               TargetGroupName: tg_webserver_dev_inbound
+               TargetGroupName: tg-webserver-dev-inbound
        state: present
