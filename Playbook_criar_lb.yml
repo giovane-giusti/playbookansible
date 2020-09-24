@@ -4,34 +4,34 @@
    connection: local
    gather_facts: false
    
-   tasks:
+ tasks:
 
- - name: Criando Target Group com instancias alvo
-   elb_target_group:
-     name: tg_webserver_dev_inbound
-     protocol: http
-     port: 80
-     vpc_id: vpc-e1ebae9b
-     targets:
-       - Id: i-0df7272f32df2fd15
-         Port: 80
-       - Id: i-0886a28a3440d8b92
-         Port: 80
-     state: present
-     wait_timeout: 200
-     wait: True
+   - name: Criando Target Group com instancias alvo
+     elb_target_group:
+       name: tg_webserver_dev_inbound
+       protocol: http
+       port: 80
+       vpc_id: vpc-e1ebae9b
+       targets:
+         - Id: i-0df7272f32df2fd15
+           Port: 80
+         - Id: i-0886a28a3440d8b92
+           Port: 80
+       state: present
+       wait_timeout: 200
+       wait: True
      
- - name: Criando Load Balancer
-   elb_network_lb:
-     name: lb_webserver_prod_inbound
-     subnets:
-       - subnet-1d9cb57a
-       - subnet-81b5c9bf
+   - name: Criando Load Balancer
+     elb_network_lb:
+       name: lb_webserver_prod_inbound
+       subnets:
+         - subnet-1d9cb57a
+         - subnet-81b5c9bf
        
-     listeners:
-       - Protocol: TCP
-         Port: 443
-         DefaultActions:
-           - Type: forward
-             TargetGroupName: tg_webserver_dev_inbound
-     state: present
+       listeners:
+         - Protocol: TCP
+           Port: 443
+           DefaultActions:
+             - Type: forward
+               TargetGroupName: tg_webserver_dev_inbound
+       state: present
