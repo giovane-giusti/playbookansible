@@ -9,6 +9,7 @@
    - name: Criando Target Group com instancias alvo
      elb_target_group:
        name: tg_webserver_dev_inbound
+       region: us-east-1
        protocol: http
        port: 80
        vpc_id: vpc-e1ebae9b
