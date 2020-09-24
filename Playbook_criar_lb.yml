@@ -35,7 +35,7 @@
        
        listeners:
          - Protocol: TCP
-           Port: 443
+           Port: 80
            DefaultActions:
              - Type: forward
                TargetGroupName: tg-webserver-dev-inbound
