@@ -1,28 +1,32 @@
 ---
- - name: Criando Load Balancer
+ - name: Automação de rede AWS
    hosts: localhost
    connection: local
    gather_facts: false
    
 tasks:
 
- - name: Criando Target Group
+ - name: Criando Target Group com instancias alvo
    elb_target_group:
      name: tg_webserver_dev_inbound
      protocol: http
      port: 80
-     vpc_id: vpc-
+     vpc_id: vpc-e1ebae9b
      targets:
-       - Id:
-         Port:
+       - Id: i-0df7272f32df2fd15
+         Port: 80
+       - Id: i-0886a28a3440d8b92
+         Port: 80
      state: present
      wait_timeout: 200
      wait: True
      
- - elb_network_lb:
+ - name: Criando Load Balancer
+   elb_network_lb:
      name: lb_webserver_prod_inbound
      subnets:
-       - subnet-
+       - subnet-1d9cb57a
+       - subnet-81b5c9bf
        
      listeners:
        - Protocol: TCP
