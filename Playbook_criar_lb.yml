@@ -30,7 +30,6 @@
        name: lb-webserver-prod-inbound
        region: us-east-1
        subnets:
-         - subnet-1d9cb57a
          - subnet-81b5c9bf
        
        listeners:
