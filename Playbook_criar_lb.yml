@@ -34,7 +34,7 @@
          - subnet-81b5c9bf
        
        listeners:
-         - Protocol: TCP
+         - Protocol: http
            Port: 80
            DefaultActions:
              - Type: forward
