@@ -10,7 +10,7 @@
      elb_target_group:
        name: tg-webserver-dev-inbound
        region: us-east-1
-       protocol: tcp
+       protocol: http
        port: 80
        vpc_id: vpc-e1ebae9b
        health_check_protocol: http
