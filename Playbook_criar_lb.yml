@@ -18,3 +18,9 @@
            - protocol: http
              load_balancer_port: 80
              instance_port: 80
+             
+     - name: Registrando os Webservers no Load Balancer
+       ec2_elb:
+         instance_id: i-0886a28a3440d8b92
+         ec2_elbs: elb-lb-test
+         state: present
