@@ -21,7 +21,9 @@
              
      - name: Registrando os Webservers no Load Balancer
        ec2_elb:
-         instance_id: i-0886a28a3440d8b92
+         instance_id: 
+          - i-0886a28a3440d8b92
+          - i-0df7272f32df2fd15
          region: us-east-1
          ec2_elbs: elb-lb-test
          state: present
