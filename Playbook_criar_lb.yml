@@ -4,7 +4,7 @@
    connection: local
    gather_facts: false
    
-tasks:
+   tasks:
 
  - name: Criando Target Group com instancias alvo
    elb_target_group:
