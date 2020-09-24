@@ -30,13 +30,11 @@
        name: lb-webserver-prod-inbound
        state: present
        region: us-east-1
-       zones:
-         - us-east-1a       
+       zones: us-east-1a       
        listeners:
          - protocol: http
            load_balancer_port: 80
            intance_port: 80
-       register: aws-elb-demo
        
    - name: adicionar o webservers no load balancer
      ec2_elb:
