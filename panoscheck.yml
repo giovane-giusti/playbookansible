@@ -1,0 +1,12 @@
+---
+ - name: Acessar e configurar o Palo Alto
+   hosts: all
+   tasks:
+   
+   - name: Procura por uma regra de segurança específica
+     community.network.panos_security_rule:
+       ip_address: 3.234.225.248
+       operation: 'find'
+       rule_name: 'Allow RDP to DCs'
+     register: result
+       
