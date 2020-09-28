@@ -3,10 +3,17 @@
    hosts: all
    tasks:
    
-   - name: Procura por uma regra de segurança específica
-     community.network.panos_security_rule:
-       ip_address: 3.234.225.248
-       operation: 'find'
-       rule_name: 'Allow RDP to DCs'
-     register: result
+   - name: Mostrar as informações das interfaces
+     community.network.panos_op:
+       ip_address: 172.31.4.91
+       username: admin
+       password: Redhat123
+       cmd: 'show interfaces all'
+       
+   - name: Mostrar informações do sistema
+     community.network.panos_op:
+       ip_address: 172.31.4.91
+       username: admin
+       password: Redhat123
+       cmd: 'show system info'
        
