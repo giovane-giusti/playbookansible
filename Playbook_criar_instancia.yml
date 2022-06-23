@@ -5,10 +5,10 @@
    gather_facts: False
 
    vars:
-     #instance_type: t2.micro
+     instance_type: t2.micro
      security_group: apache-sg
      image: ami-098f16afa9edf40be
-     #region: us-east-1
+     region: us-east-1
      keypair_name: ec2_key
      count: 1
 
