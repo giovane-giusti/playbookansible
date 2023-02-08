@@ -40,7 +40,7 @@
              cidr_ip: 0.0.0.0/0
                       
      - name: Criação da instancia EC2
-       ec2_instance:
+       amazon.aws.ec2_instance:
          key_name: tower
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
