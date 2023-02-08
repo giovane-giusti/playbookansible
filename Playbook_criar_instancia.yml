@@ -42,7 +42,7 @@
      - name: Criação da instancia EC2
        amazon.aws.ec2_instance:
          key_name: tower
-         group: "{{ security_group }}"
+         security_group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
          image_id: "{{ image }}"
          wait: yes
