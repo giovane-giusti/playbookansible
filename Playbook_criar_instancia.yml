@@ -44,7 +44,7 @@
          key_name: tower
          group: "{{ security_group }}"
          instance_type: "{{ instance_type }}"
-         image: "{{ image }}"
+         image_id: "{{ image }}"
          wait: yes
          region: "{{ region }}"
          count: "{{ count }}"
