@@ -49,6 +49,8 @@
          region: "{{ region }}"
          count: "{{ count }}"
        register: ec2
+       
+     - name: variavéis
        debug:
          var: ec2
        
