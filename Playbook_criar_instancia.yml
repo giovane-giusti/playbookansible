@@ -49,9 +49,8 @@
          region: "{{ region }}"
          count: "{{ count }}"
        register: ec2
-      
-     - debug:
-       var: ec2
+       debug:
+         var: ec2
        
      #- name: Esperando pelo SSH
       # ansible.builtin.wait_for:
