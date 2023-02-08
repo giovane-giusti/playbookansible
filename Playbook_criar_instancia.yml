@@ -49,10 +49,15 @@
          region: "{{ region }}"
          count: "{{ count }}"
        register: ec2
-
-     - name: Esperando pelo SSH
-       wait_for:
-         host: "{{ public_ip }}"
-         port: 22
-         state: started
-       with_items: "{{ ec2.instances }}"
+     
+     - name: "Wait 300 seconds, but only start checking after 60 seconds"
+  wait_for_connection:
+    delay: 60
+    timeout: 300
+    
+#     - name: Esperando pelo SSH
+ #      wait_for:
+  #       host: "{{ public_ip }}"
+   #      port: 22
+    #     state: started
+     #  with_items: "{{ ec2.instances }}"
