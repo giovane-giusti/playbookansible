@@ -2,7 +2,7 @@
  - name: Provisionando uma instância RHEL EC2
    hosts: localhost
    connection: local
-   gather_facts: False
+   gather_facts: True
 
    vars:
      instance_type: t2.micro
@@ -49,15 +49,10 @@
          region: "{{ region }}"
          count: "{{ count }}"
        register: ec2
-     
-     - name: "Wait 300 seconds, but only start checking after 60 seconds"
-       wait_for_connection:
-         delay: 60
-         timeout: 300
-    
-#     - name: Esperando pelo SSH
- #      wait_for:
-  #       host: "{{ public_ip }}"
-   #      port: 22
-    #     state: started
-     #  with_items: "{{ ec2.instances }}"
+       
+     - name: Esperando pelo SSH
+       ansible.builtin.wait_for:
+         host: "{{ item.public_ip }}"
+         port: 22
+         state: started
+       with_items: "{{ ec2.instances }}"
