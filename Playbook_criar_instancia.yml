@@ -59,3 +59,5 @@
          host: "{{ item.public_ip_address }}"
          port: 22
          state: started
+       with_items:
+           - "{{ ec2.instances }}"
