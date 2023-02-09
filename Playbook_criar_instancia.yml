@@ -53,10 +53,16 @@
      - name: variavéis
        debug:
          var: ec2
-       
-     - name: Esperando pelo SSH
-       ansible.builtin.wait_for:
-         host: "{{ item.public_ip_address }}"
-         port: 22
-         state: started
-       with_items: "{{ ec2.instances }}"
+      
+     - name: Esperando pela conexão com a instância
+       ansible.builtin.wait_for_connection:
+         delay: 60
+         timeout: 400
+      
+      
+#     - name: Esperando pelo SSH
+ #      ansible.builtin.wait_for:
+  #       host: "{{ item.public_ip_address }}"
+   #      port: 22
+    #     state: started
+     #  with_items: "{{ ec2.instances }}"
