@@ -56,6 +56,6 @@
        
      - name: Esperando pelo SSH
        ansible.builtin.wait_for:
-         host: ec2.private_ip_address
+         host: ec2.public_ip_address
          port: 22
          state: started
